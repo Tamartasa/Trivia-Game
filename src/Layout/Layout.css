@@ -1,0 +1,9 @@
+.linkStyle {
+    color: white;
+    text-decoration: none;
+   }
+
+.active-nav-link {
+    color: white;
+    text-decoration: underline;
+}

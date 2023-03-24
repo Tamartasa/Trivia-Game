@@ -1,42 +1,30 @@
 import './App.css';
-import {GameProvider} from './TriviaContext';
+import {GameProvider, GameSettingsProvider} from './TriviaContext';
 import Game from './Game';
+import GameSettings from './GameSettings';
+import Layout from './Layout/Layout';
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
   
 	return(
 		<GameProvider>
-			<Game />
+			<GameSettingsProvider>
+				<Routes>
+					<Route path='/' element={<Layout/>}>
+						<Route index element={<Game/>}/>
+						<Route path="settings" element={<GameSettings/>}/>
+					</Route>
+				</Routes>
+			</GameSettingsProvider>
 		</GameProvider>
 
-    // <MyBox>
-    //   <MyHeader></MyHeader>
-    //   <MyBody />
-    // </MyBox>
-    
+
 	)
 
 }
 
-// function MyHeader() {
-//   return(
-//     <h1>HEADER</h1>
-//   )
-// }
 
-// function MyBody() {
-//   return(
-//     <p>Body of the page</p>
-//   )
-// }
-
-// function MyBox({children}) {
-//   return(
-//     <div style={{border: 'solid 3px green'}}>
-//       {children}
-//     </div>
-//   )
-// }
 
 export default App;
